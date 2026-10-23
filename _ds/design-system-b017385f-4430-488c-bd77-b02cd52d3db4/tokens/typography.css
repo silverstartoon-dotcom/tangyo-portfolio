@@ -1,0 +1,45 @@
+:root{
+  --font-core:"Pretendard","Pretendard Fallback",-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --font-display:var(--font-core);
+  --font-mono:ui-monospace,"SFMono-Regular",Menlo,monospace;
+
+  /* weights */
+  --w-regular:400; /* @kind font */
+  --w-medium:500; /* @kind font */
+  --w-semibold:600; /* @kind font */
+  --w-bold:700; /* @kind font */
+  --w-black:900; /* @kind font */
+
+  /* display — fluid, headline scale */
+  --type-hero:clamp(2.55rem,7.4vw,6rem);
+  --type-display:clamp(2rem,5vw,3.75rem);
+  --type-headline:clamp(1.55rem,3.2vw,2.5rem);
+  --type-title:clamp(1.25rem,2vw,1.625rem);
+
+  /* body */
+  --type-lead:clamp(1.0625rem,1.5vw,1.3125rem);
+  --type-body:1rem;
+  --type-small:.9375rem;
+  --type-caption:.8125rem;
+
+  /* eyebrow / label — always latin, always tracked out */
+  --type-label:.75rem;
+  --type-label-lg:.875rem;
+
+  /* stat figures */
+  --type-stat:clamp(3.25rem,10vw,7.5rem);
+
+  /* line heights */
+  --lh-tight:1.06; /* @kind font */
+  --lh-snug:1.24; /* @kind font */
+  --lh-normal:1.5; /* @kind font */
+  --lh-relaxed:1.72; /* @kind font */
+
+  /* tracking — Korean headlines are set TIGHT, latin labels set WIDE */
+  --ls-hero:-.035em; /* @kind font */
+  --ls-display:-.028em; /* @kind font */
+  --ls-headline:-.02em; /* @kind font */
+  --ls-body:-.01em; /* @kind font */
+  --ls-label:.16em; /* @kind font */
+  --ls-label-wide:.26em; /* @kind font */
+}

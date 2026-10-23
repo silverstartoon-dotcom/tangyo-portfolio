@@ -1,0 +1,54 @@
+:root{
+  /* --- Brand core (sampled from the supplied 만화제면소 logo files) --- */
+  --mj-orange:#3b6cf5;
+  --mj-orange-700:#e03d0b;
+  --mj-orange-300:#7d9dff;
+  --mj-orange-100:#e3ebff;
+  --mj-ink:#101010;
+  --mj-charcoal:#2a2731;
+  --mj-paper:#ffffff;
+  --mj-cream:#fbe9e2;
+
+  /* --- Neutral ramp (studio dark) --- */
+  --n-0:#ffffff;
+  --n-50:#f6f5f4;
+  --n-100:#e9e7e5;
+  --n-200:#cfccc9;
+  --n-300:#a8a4a1;
+  --n-400:#7b7773;
+  --n-500:#565350;
+  --n-600:#3a3836;
+  --n-700:#272524;
+  --n-800:#1a1918;
+  --n-900:#111010;
+  --n-950:#0a0a0a;
+
+  /* --- Semantic: surface --- */
+  --surface-page:var(--n-950);
+  --surface-raised:var(--n-800);
+  --surface-card:var(--n-900);
+  --surface-inset:var(--n-700);
+  --surface-paper:var(--mj-paper);
+  --surface-accent:var(--mj-orange);
+  --surface-ink:var(--mj-ink);
+
+  /* --- Semantic: text --- */
+  --text-primary:var(--n-0);
+  --text-secondary:var(--n-300);
+  --text-muted:var(--n-400);
+  --text-accent:var(--mj-orange);
+  --text-on-accent:var(--n-0);
+  --text-on-paper:var(--mj-ink);
+  --text-on-paper-muted:var(--n-500);
+
+  /* --- Semantic: line --- */
+  --line-hairline:rgba(255,255,255,.10);
+  --line-strong:rgba(255,255,255,.22);
+  --line-accent:var(--mj-orange);
+  --line-on-paper:rgba(16,16,16,.14);
+
+  /* --- Interaction --- */
+  --state-hover-lift:rgba(255,255,255,.06);
+  --state-press-dim:rgba(0,0,0,.18);
+  --focus-ring:var(--mj-orange);
+}

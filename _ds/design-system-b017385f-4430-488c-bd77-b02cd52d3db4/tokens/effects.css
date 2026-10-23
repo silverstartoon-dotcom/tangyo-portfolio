@@ -1,0 +1,36 @@
+:root{
+  /* radii — near-square. The brand is cut paper and print blocks, not soft UI. */
+  --r-0:0px;
+  --r-1:2px;
+  --r-2:4px;
+  --r-3:8px;
+  --r-4:14px;
+  --r-pill:999px;
+
+  /* borders */
+  --bw-hair:1px; /* @kind other */
+  --bw-strong:2px; /* @kind other */
+  --bw-block:3px; /* @kind other */
+
+  /* shadows — used sparingly; dark ground means depth comes from value, not blur */
+  --shadow-none:none;
+  --shadow-card:0 1px 0 rgba(255,255,255,.04) inset, 0 18px 40px -24px rgba(0,0,0,.8);
+  --shadow-lift:0 28px 60px -28px rgba(0,0,0,.9);
+  --shadow-sticker:6px 6px 0 var(--mj-ink);
+  --shadow-sticker-accent:6px 6px 0 var(--mj-orange);
+
+  /* motion — short, flat, no bounce */
+  --ease-out:cubic-bezier(.2,.7,.25,1); /* @kind other */
+  --ease-in-out:cubic-bezier(.5,0,.3,1); /* @kind other */
+  --dur-fast:120ms; /* @kind other */
+  --dur-base:200ms; /* @kind other */
+  --dur-slow:420ms; /* @kind other */
+
+  /* signature geometry */
+  --skew-band:-2.6deg; /* @kind other */
+  --blur-veil:14px; /* @kind other */
+  --veil:rgba(10,10,10,.72);
+
+  /* image treatment: the deck renders artwork as grayscale on an orange or black block */
+  --toon-duotone:grayscale(1) contrast(1.06); /* @kind other */
+}
