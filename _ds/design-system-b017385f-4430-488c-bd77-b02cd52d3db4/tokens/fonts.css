@@ -1,6 +1,0 @@
-/* Pretendard — Korean-first sans, variable. Loaded from the official jsDelivr build.
-   SUBSTITUTION NOTE: the 만화제면소 deck headlines use a heavier, slightly condensed
-   Korean gothic that was not supplied as a font file. Pretendard Black (900) is the
-   nearest available match. See readme.md > Typography. */
-@font-face{font-family:"Pretendard";font-style:normal;font-weight:45 920;font-display:swap;src:url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/woff2/PretendardVariable.woff2") format("woff2-variations")}
-@font-face{font-family:"Pretendard Fallback";font-style:normal;font-weight:400;src:local("Apple SD Gothic Neo"),local("Malgun Gothic"),local("Noto Sans KR")}
