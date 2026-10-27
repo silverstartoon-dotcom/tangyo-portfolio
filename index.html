@@ -26,6 +26,23 @@ body{margin:0;background:var(--bg);color:var(--fg);font-family:"Pretendard Varia
 [data-case-media]{width:100%}
 @media(min-width:900px){[data-cols4]{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(max-width:600px){[data-hide-sm]{display:none!important}}
+:root{--ease:cubic-bezier(.16,1,.3,1);--ease-io:cubic-bezier(.65,0,.35,1)}
+html.fx [data-fx]{opacity:0;transition:opacity .9s var(--ease) calc(var(--i,0)*90ms),transform 1s var(--ease) calc(var(--i,0)*90ms);will-change:opacity,transform}
+html.fx [data-fx="up"]{transform:translateY(28px)}
+html.fx [data-fx="left"]{transform:translateX(-56px)}
+html.fx [data-fx="right"]{transform:translateX(56px)}
+html.fx [data-fx="zoom"]{transform:scale(.94) translateY(16px)}
+html.fx [data-fx].in{opacity:1;transform:none}
+[data-marquee-band]{overflow:hidden;padding:clamp(16px,2vw,22px) 0;border-block:1px solid var(--border);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+[data-marquee]{display:flex;align-items:center;width:max-content;animation:mjMarquee 38s linear infinite}
+[data-marquee-band]:hover [data-marquee]{animation-play-state:paused}
+[data-mq-item]{padding:0 clamp(18px,2.6vw,36px);font-size:clamp(1.25rem,2.6vw,2rem);font-weight:900;letter-spacing:-.03em;white-space:nowrap;color:var(--fg)}
+[data-mq-item="o"]{color:transparent;-webkit-text-stroke:1.2px var(--fg)}
+[data-mq-dot]{flex:0 0 auto;width:8px;height:8px;border-radius:50%;background:#3b6cf5}
+@keyframes mjMarquee{to{transform:translateX(-50%)}}
+a,button{transition:transform .35s var(--ease),background-color .25s var(--ease-io),border-color .25s var(--ease-io),color .25s var(--ease-io)}
+[data-lift]:hover{transform:translateY(-3px)}
+@media(prefers-reduced-motion:reduce){[data-marquee]{animation:none}html.fx [data-fx]{opacity:1!important;transform:none!important;transition:none!important}}
 [data-live]{position:relative;flex:0 0 auto;width:9px;height:9px;border-radius:50%;background:#3b6cf5}[data-live]::after{content:"";position:absolute;inset:0;border-radius:50%;background:#3b6cf5;animation:mjPulse 1.8s ease-out infinite}@keyframes mjPulse{from{transform:scale(1);opacity:.6}to{transform:scale(2.8);opacity:0}}@media(prefers-reduced-motion:reduce){[data-live]::after{animation:none}}
 [data-rail-btn]{position:absolute;z-index:5;top:calc(24px + min(84vw,400px)*0.625);transform:translateY(-50%);width:clamp(48px,4.4vw,60px);height:clamp(48px,4.4vw,60px);display:grid;place-items:center;padding:0 0 4px;background:#3b6cf5;color:#fff;border:0;border-radius:999px;cursor:pointer;font-size:clamp(28px,2.6vw,36px);line-height:1;box-shadow:0 8px 24px rgba(0,0,0,.4);transition:transform .15s,background .15s}
 [data-rail-btn]:hover{background:#5a84ff;transform:translateY(-50%) scale(1.08)}
@@ -55,7 +72,7 @@ body{margin:0;background:var(--bg);color:var(--fg);font-family:"Pretendard Varia
 
 <section data-screen-label="01 HERO" style="position:relative;padding:clamp(48px,8vw,112px) clamp(20px,5vw,72px) clamp(64px,8vw,112px)">
 <div style="max-width:1280px;margin:0 auto;display:grid;gap:clamp(36px,5vw,72px);grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));align-items:center">
-<div style="display:flex;flex-direction:column;gap:clamp(22px,3vw,34px);animation:mjRise .6s cubic-bezier(.2,.7,.25,1) both">
+<div style="display:flex;flex-direction:column;gap:clamp(22px,3vw,34px)">
 <div style="display:flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:#3b6cf5;flex-wrap:wrap">
 <span style="white-space:nowrap">Instagram Toon</span><span style="opacity:.4">·</span><span style="white-space:nowrap">직장인 썰</span><span style="opacity:.4">·</span><span style="white-space:nowrap">공감툰</span>
 </div>
@@ -72,7 +89,7 @@ body{margin:0;background:var(--bg);color:var(--fg);font-family:"Pretendard Varia
 <a href="#contact" style="display:inline-flex;align-items:center;padding:18px 32px;border:2px solid var(--outline);color:var(--fg);font-size:1rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;border-radius:2px">Contact</a>
 </div>
 </div>
-<a href="#case" style="display:block;justify-self:center;width:100%;max-width:440px;color:inherit;animation:mjRise .7s .1s cubic-bezier(.2,.7,.25,1) both">
+<a href="#case" style="display:block;justify-self:center;width:100%;max-width:440px;color:inherit">
 <figure style="margin:0;position:relative">
 <img src="assets/work/cheongwoldang/01.webp" alt="청월당 광고 소재 첫 컷" style="width:100%;height:auto;border-radius:4px;border:1px solid var(--border)">
 <figcaption style="position:absolute;left:-12px;bottom:24px;display:flex;flex-direction:column;gap:4px;padding:14px 18px;background:#3b6cf5;color:#fff;border-radius:2px;box-shadow:0 10px 30px rgba(0,0,0,.35)">
@@ -83,6 +100,10 @@ body{margin:0;background:var(--bg);color:var(--fg);font-family:"Pretendard Varia
 </a>
 </div>
 </section>
+
+<div data-marquee-band="" role="region" aria-label="작업한 브랜드">
+<div data-marquee=""><span data-mq-item="">CLASS101</span><span data-mq-dot="" aria-hidden="true"></span><span data-mq-item="o">시그널플래너</span><span data-mq-dot="" aria-hidden="true"></span><span data-mq-item="">머니루트</span><span data-mq-dot="" aria-hidden="true"></span><span data-mq-item="o">청월당</span><span data-mq-dot="" aria-hidden="true"></span><span data-mq-item="">카치로린</span><span data-mq-dot="" aria-hidden="true"></span><span data-mq-item="o">로페이</span><span data-mq-dot="" aria-hidden="true"></span><span data-mq-item="">삶 클리닉</span><span data-mq-dot="" aria-hidden="true"></span><span data-mq-item="o">세딸연 딸기아삭이</span><span data-mq-dot="" aria-hidden="true"></span><span aria-hidden="true" style="display:contents"><span data-mq-item="">CLASS101</span><span data-mq-dot="" aria-hidden="true"></span><span data-mq-item="o">시그널플래너</span><span data-mq-dot="" aria-hidden="true"></span><span data-mq-item="">머니루트</span><span data-mq-dot="" aria-hidden="true"></span><span data-mq-item="o">청월당</span><span data-mq-dot="" aria-hidden="true"></span><span data-mq-item="">카치로린</span><span data-mq-dot="" aria-hidden="true"></span><span data-mq-item="o">로페이</span><span data-mq-dot="" aria-hidden="true"></span><span data-mq-item="">삶 클리닉</span><span data-mq-dot="" aria-hidden="true"></span><span data-mq-item="o">세딸연 딸기아삭이</span><span data-mq-dot="" aria-hidden="true"></span></span></div>
+</div>
 
 <section data-screen-label="02 POSITIONING" style="background: #3b6cf5; padding: clamp(56px,8vw,104px) clamp(20px,5vw,72px); transform: skewY(-2.6deg); margin: clamp(16px,3vw,40px) 0">
 <div style="max-width:1280px;margin:0 auto;transform:skewY(2.6deg);display:grid;gap:clamp(28px,4vw,56px);grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));align-items:start">
@@ -108,11 +129,11 @@ body{margin:0;background:var(--bg);color:var(--fg);font-family:"Pretendard Varia
 <div style="display:flex;flex-direction:column;gap:18px;padding:clamp(22px,2.6vw,32px);background:var(--card);border:1px solid var(--border);border-top:3px solid #3b6cf5;border-radius:4px">
 <div style="font-size:12px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--label)">Followers vs Reach · 2026.10 기준</div>
 <div style="display:grid;grid-template-columns:auto auto minmax(0,1fr);gap:clamp(12px,2vw,24px);align-items:end">
-<div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:clamp(1.5rem,2.6vw,2rem);font-weight:900;line-height:1;letter-spacing:-.04em;color:var(--muted)">623</div><div style="font-size:.8125rem;color:var(--label)">팔로워</div></div>
+<div style="display:flex;flex-direction:column;gap:6px"><div style="font-size:clamp(1.5rem,2.6vw,2rem);font-weight:900;line-height:1;letter-spacing:-.04em;color:var(--muted)" data-count="">623</div><div style="font-size:.8125rem;color:var(--label)">팔로워</div></div>
 <div aria-hidden="true" style="font-size:1.5rem;color:var(--label);line-height:1;padding-bottom:22px">→</div>
-<div style="display:flex;flex-direction:column;gap:6px;min-width:0"><div style="font-size:clamp(2.25rem,5vw,3.5rem);font-weight:900;line-height:1;letter-spacing:-.04em;color:#3b6cf5">33.9만</div><div style="font-size:.8125rem;color:var(--label)">도달 계정</div></div>
+<div style="display:flex;flex-direction:column;gap:6px;min-width:0"><div style="font-size:clamp(2.25rem,5vw,3.5rem);font-weight:900;line-height:1;letter-spacing:-.04em;color:#3b6cf5" data-count="">33.9만</div><div style="font-size:.8125rem;color:var(--label)">도달 계정</div></div>
 </div>
-<div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding-top:14px;border-top:1px solid var(--border)"><span style="font-size:clamp(1.5rem,2.8vw,2rem);font-weight:900;letter-spacing:-.04em">약 544배</span><span style="font-size:.9375rem;color:var(--muted)">팔로워 수 대비 도달 · 도달의 99.8%가 비팔로워</span></div>
+<div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;padding-top:14px;border-top:1px solid var(--border)"><span style="font-size:clamp(1.5rem,2.8vw,2rem);font-weight:900;letter-spacing:-.04em" data-count="">약 544배</span><span style="font-size:.9375rem;color:var(--muted)">팔로워 수 대비 도달 · 도달의 99.8%가 비팔로워</span></div>
 </div>
 <div data-metrics="">
 <div data-metric=""><div data-num="">4,941</div><div data-cap="">링크 클릭<br>도달 대비 클릭률 <b style="color:var(--fg)">약 1.46%</b></div></div>
@@ -243,7 +264,7 @@ body{margin:0;background:var(--bg);color:var(--fg);font-family:"Pretendard Varia
 </div>
 <div style="display:flex;flex-direction:column;gap:16px;padding:clamp(22px,2.6vw,32px);background:var(--card);border:1px solid var(--border);border-radius:4px">
 <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap"><span style="display:inline-flex;padding:6px 12px;background:#3b6cf5;color:#fff;font-size:.8125rem;font-weight:800;letter-spacing:.04em;border-radius:2px">구매력 있는 독자층</span><span style="font-size:12px;font-weight:700;letter-spacing:.2em;color:var(--label)">AUDIENCE · @TANGYO_TOON</span></div>
-<div style="display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap"><div style="font-size:clamp(3.5rem,8vw,5.5rem);font-weight:900;line-height:.9;letter-spacing:-.05em;color:#3b6cf5">70<span style="font-size:.5em">%</span></div><div style="display:flex;flex-direction:column;gap:4px;padding-bottom:4px;min-width:0"><div style="font-size:clamp(1.125rem,1.8vw,1.375rem);font-weight:800;line-height:1.3">독자 10명 중 7명이 25–44세</div><div style="font-size:.9375rem;color:var(--muted)">소비와 결제가 가장 활발한 연령대</div></div></div>
+<div style="display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap"><div style="font-size:clamp(3.5rem,8vw,5.5rem);font-weight:900;line-height:.9;letter-spacing:-.05em;color:#3b6cf5" data-count="">70<span style="font-size:.5em">%</span></div><div style="display:flex;flex-direction:column;gap:4px;padding-bottom:4px;min-width:0"><div style="font-size:clamp(1.125rem,1.8vw,1.375rem);font-weight:800;line-height:1.3">독자 10명 중 7명이 25–44세</div><div style="font-size:.9375rem;color:var(--muted)">소비와 결제가 가장 활발한 연령대</div></div></div>
 <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding-top:16px;border-top:1px solid var(--border)">
 <div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:clamp(1.5rem,2.6vw,2rem);font-weight:900;line-height:1;letter-spacing:-.03em">{{ followers }}</div><div style="font-size:.875rem;color:var(--muted)">팔로워 <span style="color:#3b6cf5;font-weight:700">↑ 증가 중</span></div></div>
 <div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:clamp(1.5rem,2.6vw,2rem);font-weight:900;line-height:1;letter-spacing:-.03em">50<span style="font-size:.6em">:</span>50</div><div style="font-size:.875rem;color:var(--muted)">남 : 여</div></div>
@@ -393,6 +414,7 @@ class Component extends DCLogic {
     let saved = null;
     try { saved = localStorage.getItem('mj-theme'); } catch (e) {}
     this.applyTheme(saved === 'dark' ? 'dark' : 'light');
+    requestAnimationFrame(() => requestAnimationFrame(() => this.setupFx()));
   }
 
   applyTheme(theme) {
@@ -450,7 +472,89 @@ class Component extends DCLogic {
     }
   }
 
-  componentWillUnmount() { clearTimeout(this.timer); }
+  componentWillUnmount() { clearTimeout(this.timer); if (this.fxIO) this.fxIO.disconnect(); }
+
+  setupFx() {
+    if (this.fxReady) return;
+    this.fxReady = true;
+    let reduce = false;
+    try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+    if (reduce || !('IntersectionObserver' in window)) return;
+    const $ = (sel, root = document) => root.querySelector(sel);
+    const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+    const tag = (el, kind, i) => { if (!el || el.hasAttribute('data-fx')) return; el.setAttribute('data-fx', kind); el.style.setProperty('--i', i || 0); };
+    const kids = (el) => el ? Array.from(el.children) : [];
+    const sec = (label) => $('section[data-screen-label$="' + label + '"]');
+    const inner = (s) => s && s.querySelector(':scope > div');
+
+    const hero = sec('HERO'); const hg = inner(hero);
+    if (hg) { tag(hg.children[0], 'left', 0); tag(hg.children[1], 'right', 2); }
+    const pos = sec('POSITIONING'); kids(inner(pos)).forEach((el, i) => tag(el, 'up', i));
+
+    const cs = inner(sec('BEST CASE'));
+    if (cs) {
+      tag(cs.children[0], 'up', 0); tag(cs.children[1], 'up', 1);
+      const grid = cs.children[2];
+      if (grid) {
+        tag(grid.children[0], 'left', 1);
+        const right = grid.children[1];
+        kids(right).forEach((el, i) => { if (el.hasAttribute('data-metrics')) kids(el).forEach((m, j) => tag(m, 'zoom', i + j)); else tag(el, 'right', i); });
+      }
+    }
+    let railGroup = null;
+    const ws = inner(sec('SELECTED WORK'));
+    if (ws) { kids(ws).forEach((el, i) => { if (!el.querySelector('[data-rail]')) tag(el, 'up', i); }); $$('[data-case]', ws).forEach((el, i) => tag(el, 'up', Math.min(i, 4))); railGroup = $('[data-rail]', ws); }
+    const ch = inner(sec('CHANNEL')); if (ch) { tag(ch.children[0], 'left', 0); tag(ch.children[1], 'right', 1); }
+    kids(inner(sec('WHY INSTATOON'))).forEach((el, i) => tag(el, 'up', i));
+    kids(inner(sec('CASTING'))).forEach((el, i) => tag(el, 'up', i));
+    const pr = inner(sec('PROCESS'));
+    if (pr) { tag(pr.children[0], 'up', 0); $$('li', pr).forEach((el, i) => tag(el, 'right', i + 1)); }
+    const wm = inner(sec('WORK WITH ME'));
+    if (wm) { tag(wm.children[0], 'up', 0); kids(wm.children[1]).forEach((el, i) => tag(el, 'up', i + 1)); }
+    const ct = inner(sec('CONTACT'));
+    if (ct) { tag(ct.children[0], 'left', 0); kids(ct.children[1]).forEach((el, i) => { tag(el, 'right', i + 1); el.setAttribute('data-lift', ''); }); }
+
+    const counters = $$('[data-hstat] > div:first-child, [data-num], [data-count]');
+    counters.forEach((el) => { el.style.fontVariantNumeric = 'tabular-nums'; });
+
+    document.documentElement.classList.add('fx');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (!en.isIntersecting) return;
+        const el = en.target;
+        io.unobserve(el);
+        if (el.hasAttribute('data-fx')) el.classList.add('in');
+        if (el === railGroup) $$('[data-case]', el).forEach((c) => c.classList.add('in'));
+        if (counters.includes(el)) this.countUp(el);
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -6% 0px' });
+    $$('[data-fx]').forEach((el) => { if (!el.hasAttribute('data-case')) io.observe(el); });
+    if (railGroup) io.observe(railGroup);
+    counters.forEach((el) => io.observe(el));
+    this.fxIO = io;
+  }
+
+  countUp(el) {
+    const tn = Array.from(el.childNodes).find((n) => n.nodeType === 3 && /\d/.test(n.nodeValue));
+    if (!tn) return;
+    const m = tn.nodeValue.match(/^([^\d]*)([\d,]*\.?\d+)([\s\S]*)$/);
+    if (!m) return;
+    const pre = m[1], num = m[2], post = m[3];
+    const dec = (num.split('.')[1] || '').length;
+    const target = parseFloat(num.replace(/,/g, ''));
+    const comma = num.indexOf(',') !== -1;
+    const fmt = (v) => pre + (comma ? v.toLocaleString('en-US', { minimumFractionDigits: dec, maximumFractionDigits: dec }) : v.toFixed(dec)) + post;
+    const dur = 1800, t0 = performance.now();
+    const ease = (t) => (t >= 1 ? 1 : 1 - Math.pow(2, -10 * t));
+    const step = (now) => {
+      const t = Math.min(1, (now - t0) / dur);
+      tn.nodeValue = fmt(target * ease(t));
+      if (t < 1) requestAnimationFrame(step); else tn.nodeValue = pre + num + post;
+    };
+    tn.nodeValue = fmt(0);
+    requestAnimationFrame(step);
+  }
+
 
   cutSet(slug, count, name) {
     return Array.from({ length: count }, (_, k) => ({
