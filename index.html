@@ -33,16 +33,9 @@ html.fx [data-fx="left"]{transform:translateX(-56px)}
 html.fx [data-fx="right"]{transform:translateX(56px)}
 html.fx [data-fx="zoom"]{transform:scale(.94) translateY(16px)}
 html.fx [data-fx].in{opacity:1;transform:none}
-[data-marquee-band]{overflow:hidden;padding:clamp(16px,2vw,22px) 0;border-block:1px solid var(--border);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-[data-marquee]{display:flex;align-items:center;width:max-content;animation:mjMarquee 38s linear infinite}
-[data-marquee-band]:hover [data-marquee]{animation-play-state:paused}
-[data-mq-item]{padding:0 clamp(18px,2.6vw,36px);font-size:clamp(1.25rem,2.6vw,2rem);font-weight:900;letter-spacing:-.03em;white-space:nowrap;color:var(--fg)}
-[data-mq-item="o"]{color:transparent;-webkit-text-stroke:1.2px var(--fg)}
-[data-mq-dot]{flex:0 0 auto;width:8px;height:8px;border-radius:50%;background:#3b6cf5}
-@keyframes mjMarquee{to{transform:translateX(-50%)}}
 a,button{transition:transform .35s var(--ease),background-color .25s var(--ease-io),border-color .25s var(--ease-io),color .25s var(--ease-io)}
 [data-lift]:hover{transform:translateY(-3px)}
-@media(prefers-reduced-motion:reduce){[data-marquee]{animation:none}html.fx [data-fx]{opacity:1!important;transform:none!important;transition:none!important}}
+@media(prefers-reduced-motion:reduce){html.fx [data-fx]{opacity:1!important;transform:none!important;transition:none!important}}
 [data-live]{position:relative;flex:0 0 auto;width:9px;height:9px;border-radius:50%;background:#3b6cf5}[data-live]::after{content:"";position:absolute;inset:0;border-radius:50%;background:#3b6cf5;animation:mjPulse 1.8s ease-out infinite}@keyframes mjPulse{from{transform:scale(1);opacity:.6}to{transform:scale(2.8);opacity:0}}@media(prefers-reduced-motion:reduce){[data-live]::after{animation:none}}
 [data-rail-btn]{position:absolute;z-index:5;top:calc(24px + min(84vw,400px)*0.625);transform:translateY(-50%);width:clamp(48px,4.4vw,60px);height:clamp(48px,4.4vw,60px);display:grid;place-items:center;padding:0 0 4px;background:#3b6cf5;color:#fff;border:0;border-radius:999px;cursor:pointer;font-size:clamp(28px,2.6vw,36px);line-height:1;box-shadow:0 8px 24px rgba(0,0,0,.4);transition:transform .15s,background .15s}
 [data-rail-btn]:hover{background:#5a84ff;transform:translateY(-50%) scale(1.08)}
@@ -100,10 +93,6 @@ a,button{transition:transform .35s var(--ease),background-color .25s var(--ease-
 </a>
 </div>
 </section>
-
-<div data-marquee-band="" role="region" aria-label="작업한 브랜드">
-<div data-marquee=""><span data-mq-item="">CLASS101</span><span data-mq-dot="" aria-hidden="true"></span><span data-mq-item="o">시그널플래너</span><span data-mq-dot="" aria-hidden="true"></span><span data-mq-item="">머니루트</span><span data-mq-dot="" aria-hidden="true"></span><span data-mq-item="o">청월당</span><span data-mq-dot="" aria-hidden="true"></span><span data-mq-item="">카치로린</span><span data-mq-dot="" aria-hidden="true"></span><span data-mq-item="o">로페이</span><span data-mq-dot="" aria-hidden="true"></span><span data-mq-item="">삶 클리닉</span><span data-mq-dot="" aria-hidden="true"></span><span data-mq-item="o">세딸연 딸기아삭이</span><span data-mq-dot="" aria-hidden="true"></span><span aria-hidden="true" style="display:contents"><span data-mq-item="">CLASS101</span><span data-mq-dot="" aria-hidden="true"></span><span data-mq-item="o">시그널플래너</span><span data-mq-dot="" aria-hidden="true"></span><span data-mq-item="">머니루트</span><span data-mq-dot="" aria-hidden="true"></span><span data-mq-item="o">청월당</span><span data-mq-dot="" aria-hidden="true"></span><span data-mq-item="">카치로린</span><span data-mq-dot="" aria-hidden="true"></span><span data-mq-item="o">로페이</span><span data-mq-dot="" aria-hidden="true"></span><span data-mq-item="">삶 클리닉</span><span data-mq-dot="" aria-hidden="true"></span><span data-mq-item="o">세딸연 딸기아삭이</span><span data-mq-dot="" aria-hidden="true"></span></span></div>
-</div>
 
 <section data-screen-label="02 POSITIONING" style="background: #3b6cf5; padding: clamp(56px,8vw,104px) clamp(20px,5vw,72px); transform: skewY(-2.6deg); margin: clamp(16px,3vw,40px) 0">
 <div style="max-width:1280px;margin:0 auto;transform:skewY(2.6deg);display:grid;gap:clamp(28px,4vw,56px);grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));align-items:start">
