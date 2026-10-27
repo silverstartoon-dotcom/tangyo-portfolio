@@ -489,11 +489,10 @@ class Component extends DCLogic {
 
     const hero = sec('HERO'); const hg = inner(hero);
     if (hg) { tag(hg.children[0], 'left', 0); tag(hg.children[1], 'right', 2); }
-    const pos = sec('POSITIONING'); kids(inner(pos)).forEach((el, i) => tag(el, 'up', i));
 
     const cs = inner(sec('BEST CASE'));
     if (cs) {
-      tag(cs.children[0], 'up', 0); tag(cs.children[1], 'up', 1);
+      tag(cs.children[1], 'up', 0);
       const grid = cs.children[2];
       if (grid) {
         tag(grid.children[0], 'left', 1);
@@ -503,14 +502,8 @@ class Component extends DCLogic {
     }
     let railGroup = null;
     const ws = inner(sec('SELECTED WORK'));
-    if (ws) { kids(ws).forEach((el, i) => { if (!el.querySelector('[data-rail]')) tag(el, 'up', i); }); $$('[data-case]', ws).forEach((el, i) => tag(el, 'up', Math.min(i, 4))); railGroup = $('[data-rail]', ws); }
-    const ch = inner(sec('CHANNEL')); if (ch) { tag(ch.children[0], 'left', 0); tag(ch.children[1], 'right', 1); }
-    kids(inner(sec('WHY INSTATOON'))).forEach((el, i) => tag(el, 'up', i));
-    kids(inner(sec('CASTING'))).forEach((el, i) => tag(el, 'up', i));
     const pr = inner(sec('PROCESS'));
-    if (pr) { tag(pr.children[0], 'up', 0); $$('li', pr).forEach((el, i) => tag(el, 'right', i + 1)); }
     const wm = inner(sec('WORK WITH ME'));
-    if (wm) { tag(wm.children[0], 'up', 0); kids(wm.children[1]).forEach((el, i) => tag(el, 'up', i + 1)); }
     const ct = inner(sec('CONTACT'));
     if (ct) { tag(ct.children[0], 'left', 0); kids(ct.children[1]).forEach((el, i) => { tag(el, 'right', i + 1); el.setAttribute('data-lift', ''); }); }
 
